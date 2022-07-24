@@ -65,6 +65,11 @@ startQuiz = () => {
 }
 
 getNewQuestion = () => {
+    //go to the end of the page is 4 maximum questions are answered
+    if(availableQuesions.length === 0 || questionCounter > maximumQuestion) {
+        return window.location.assign("/end.html");
+    }
+    
     questionCounter++;
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
@@ -82,7 +87,13 @@ getNewQuestion = () => {
 
 answers.forEach (choice => {
     choice.addEventListener("click", e => {
-        console.log(e.target);
+        if (!acceptingAnswers) return;
+
+        acceptingAnswers = false;
+        const selectedOption = e.target;
+        const selectedAnswer = selectedOption.dataset["number"];
+        console.log(selectedAnswer);
+        getNewQuestion();
     });
 });
 
