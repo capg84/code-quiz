@@ -1,10 +1,11 @@
+:root {
+    background-color: aliceblue;
+}
+
 
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: aliceblue;
-    /* max-width: 390px;
-    margin: 0px; */
 }
 
 header {
