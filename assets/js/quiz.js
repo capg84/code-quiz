@@ -49,5 +49,41 @@ let questions = [
         choice3: "Document Oracle Model, a programming language",
         choice4: "Disk Operation Management, a system utility",
         answer: 2,
-    }
+    },
 ];
+
+//defining constants for the quiz
+const maximumQuestion = 4;
+const correctAnswerPoint = 25;
+
+startQuiz = () => {
+    questionCounter = 0;
+    score = 0;
+    availableQuesions = [...questions];
+    console.log(availableQuesions);
+    getNewQuestion();
+}
+
+getNewQuestion = () => {
+    questionCounter++;
+    const questionIndex = Math.floor(Math.random() * availableQuesions.length);
+    currentQuestion = availableQuesions[questionIndex];
+    question.innerText = currentQuestion.question;
+
+    answers.forEach (choice => {
+        const number = choice.dataset["number"];
+        choice.innerText = currentQuestion["choice" + number];
+    });
+
+    availableQuesions.splice(questionIndex, 1);
+
+    acceptingAnswers = true;
+};
+
+answers.forEach (choice => {
+    choice.addEventListener("click", e => {
+        console.log(e.target);
+    });
+});
+
+startQuiz();
