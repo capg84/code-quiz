@@ -1,12 +1,12 @@
-body {
+/* body {
     margin-top: 25%;
-}
+} */
 
-header {
+/* header {
     background-color: darkblue;
     margin-top: -25%;
     color: antiquewhite;
-}
+} */
 
 .quiz {
     color: antiquewhite;
@@ -15,6 +15,7 @@ header {
 .container {
     margin: 5%;
 }
+
 .answers {
     display: flex;
     margin: 0px 10% 15px 10%;
@@ -61,12 +62,27 @@ header {
     padding-left: 2px;
   }
   
-  .Incorrect {
+.Incorrect {
     color: red;
     font-weight: bold;
     padding-left: 2px;
-  }
+}
 
-  .result {
+.result {
     display: flex;
-  }
+}
+
+#hud {
+    display: flex;
+    justify-content: space-between;
+    padding: 0% 10%;
+}
+
+.hud-prefix {
+    text-align: center;
+    font-size: 16px;
+}
+
+.hud-main-text {
+    text-align: center;
+}

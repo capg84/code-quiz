@@ -4,8 +4,8 @@ const resultCorrect = document.getElementById("correct");
 const resultIncorrect = document.getElementById("incorrect");
 var secondLeft = 100;
 var interval = setInterval(countDownSecond,1000);
-
-
+var questionCount = document.getElementById("questionCounter");
+var scoreText = document.getElementById("score");
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -72,10 +72,15 @@ startQuiz = () => {
 getNewQuestion = () => {
     //go to the end of the page is 4 maximum questions are answered
     if(availableQuesions.length === 0 || questionCounter >= maximumQuestion) {
+        console.log(score);
+        document.getElementById("score").append("Your score is " + score);
         return window.location.assign("end.html");
     }
     
     questionCounter++;
+
+    questionCount.innerText = questionCounter + "/" + maximumQuestion;
+
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -104,13 +109,18 @@ answers.forEach (choice => {
             result = "Correct";
             resultCorrect.style.display = "block";
             resultIncorrect.style.display = "none";
+            score = score + 5; //adding score for correct answer
             } else {
                 result = "Incorrect";
                 resultCorrect.style.display = "none";
                 resultIncorrect.style.display = "block";
                 secondLeft = secondLeft - 20; //deducting 20 seconds for incorrect answer penalty
         };
+        
+        scoreText.innerText = score;
+
         console.log(result);
+        console.log(score);
 
         setTimeout(() => {
             resultCorrect.style.display = "none";
@@ -123,7 +133,7 @@ answers.forEach (choice => {
 
 //set timer
 function countDownSecond() {
-    document.getElementById("timer").innerHTML = secondLeft + " sec left";
+    document.getElementById("timer").innerHTML = secondLeft + " sec";
     secondLeft--;
     
     if (secondLeft <= 0) {

@@ -9,10 +9,30 @@
     <link rel="stylesheet" href="./assets/styles/quiz.css">
 </head>
 <body>
-    <header>
-        <h1 class="quiz">Code Quiz</h1>
-        <h4 id="timer"></h4>
-    </header>
+    <div id="hud">
+        <div id="hud-item">
+          <p class="hud-prefix">
+            Question
+          </p>
+          <h1 class="hud-main-text" id="questionCounter"></h1>
+        </div>
+        <div id="hud-item">
+          <p class="hud-prefix">
+            Score
+          </p>
+          <h1 class="hud-main-text" id="score">
+            0
+          </h1>
+        </div>
+        <div id="hud-item">
+            <p class="hud-prefix">
+              Time left
+            </p>
+            <h1 class="hud-main-text" id="timer">
+              0
+            </h1>
+          </div>
+      </div>
     <div class="container">
         <div id="quiz" class="justify-center flex-column">
             <h2 id="question">What is your answer to this question?</h2>
