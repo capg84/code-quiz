@@ -1,7 +1,8 @@
-const question = document.getElementById("question");
-const answers = Array.from(document.getElementsByClassName("answer-text"));
+var question = document.getElementById("question");
+var answers = Array.from(document.getElementsByClassName("answerText"));
+const resultCorrect = document.getElementById("correct");
+const resultIncorrect = document.getElementById("incorrect");
 
-console.log(answers);
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -27,20 +28,20 @@ let questions = [
         answer: 1,
     },
     {
-        question: "What is the purpose of JavaScrip?",
+        question: "Which of the following are types of primitive data?",
+        choice1: "String, Number, BigInt, Undefined",
+        choice2: "Variable, Function, Methods",
+        choice3: "Array, Console, Attribute",
+        choice4: "Number, Boolean, Loop",
+        answer: 1,
+    },
+    {
+        question: "What is the purpose of JavaScript?",
         choice1: "So that the browser can load the page's functionality properly",
         choice2: "To manage the conent of a webpage",
         choice3: "To manage the styles of a webpage",
         choice4: "To manage the behaviour of a webpage",
         answer: 4,
-    },
-    {
-        question: "Which of the following are types of primitive data?",
-        choice1: "String, Number, BigInt, Undefined",
-        choice2: "Variable, Function, Methods",
-        Choice3: "Array, Console, Attribute",
-        Choice4: "Number, Boolean, Loop",
-        answer: 1,
     },
     {
         question: "What is DOM tree?",
@@ -60,14 +61,14 @@ startQuiz = () => {
     questionCounter = 0;
     score = 0;
     availableQuesions = [...questions];
-    console.log(availableQuesions);
+    //console.log(availableQuesions);
     getNewQuestion();
 }
 
 getNewQuestion = () => {
     //go to the end of the page is 4 maximum questions are answered
-    if(availableQuesions.length === 0 || questionCounter > maximumQuestion) {
-        return window.location.assign("/end.html");
+    if(availableQuesions.length === 0 || questionCounter >= maximumQuestion) {
+        return window.location.assign("end.html");
     }
     
     questionCounter++;
@@ -92,8 +93,26 @@ answers.forEach (choice => {
         acceptingAnswers = false;
         const selectedOption = e.target;
         const selectedAnswer = selectedOption.dataset["number"];
-        console.log(selectedAnswer);
-        getNewQuestion();
+
+        var result = "";
+        
+        if (selectedAnswer == currentQuestion.answer) {
+            result = "Correct";
+            resultCorrect.style.display = "block";
+            resultIncorrect.style.display = "none";
+            } else {
+                result = "Incorrect";
+                resultCorrect.style.display = "none";
+                resultIncorrect.style.display = "block";
+        };
+        console.log(result);
+
+        setTimeout(() => {
+            resultCorrect.style.display = "none";
+            resultIncorrect.style.display = "none";
+
+            getNewQuestion();
+        }, 2000);
     });
 });
 

@@ -49,8 +49,24 @@ header {
     font-weight: bold;
 }
 
-.answer-text {
+.answerText {
     padding: 10px;
     margin: 0px;
     width: 100%;
 }
+
+.Correct {
+    color: green;
+    font-weight: bold;
+    padding-left: 2px;
+  }
+  
+  .Incorrect {
+    color: red;
+    font-weight: bold;
+    padding-left: 2px;
+  }
+
+  .result {
+    display: flex;
+  }
