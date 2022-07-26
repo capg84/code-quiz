@@ -2,6 +2,9 @@ var question = document.getElementById("question");
 var answers = Array.from(document.getElementsByClassName("answerText"));
 const resultCorrect = document.getElementById("correct");
 const resultIncorrect = document.getElementById("incorrect");
+var secondLeft = 100;
+var interval = setInterval(countDownSecond,1000);
+
 
 
 let currentQuestion = {};
@@ -63,6 +66,7 @@ startQuiz = () => {
     availableQuesions = [...questions];
     //console.log(availableQuesions);
     getNewQuestion();
+    countDownSecond();
 }
 
 getNewQuestion = () => {
@@ -104,6 +108,7 @@ answers.forEach (choice => {
                 result = "Incorrect";
                 resultCorrect.style.display = "none";
                 resultIncorrect.style.display = "block";
+                secondLeft = secondLeft - 20; //deducting 20 seconds for incorrect answer penalty
         };
         console.log(result);
 
@@ -115,5 +120,16 @@ answers.forEach (choice => {
         }, 2000);
     });
 });
+
+//set timer
+function countDownSecond() {
+    document.getElementById("timer").innerHTML = secondLeft + " sec left";
+    secondLeft--;
+    
+    if (secondLeft <= 0) {
+        clearInterval(interval);
+        alert("Time's up!!");
+    };
+};
 
 startQuiz();
