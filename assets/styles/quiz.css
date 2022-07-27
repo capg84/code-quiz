@@ -12,10 +12,14 @@
     color: antiquewhite;
 }
 
-.container {
+.quizBox {
     margin: 5%;
 }
 
+#question {
+    text-align: left;
+    color: rgb(5, 5, 70);
+}
 .answers {
     display: flex;
     margin: 0px 10% 15px 10%;
@@ -81,6 +85,7 @@
 .hud-prefix {
     text-align: center;
     font-size: 16px;
+    color: rgb(5, 5, 70);
 }
 
 .hud-main-text {

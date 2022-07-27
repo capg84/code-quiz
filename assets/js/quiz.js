@@ -47,7 +47,7 @@ let questions = [
         answer: 4,
     },
     {
-        question: "What is DOM tree?",
+        question: "What is a DOM tree?",
         choice1: "Document Operation Modal, a programming surface",
         choice2: "Document Object Model, a programming interface",
         choice3: "Document Oracle Model, a programming language",
@@ -72,6 +72,8 @@ startQuiz = () => {
 getNewQuestion = () => {
     //go to the end of the page is 4 maximum questions are answered
     if(availableQuesions.length === 0 || questionCounter >= maximumQuestion) {
+        //storing the last score in localStorage
+        localStorage.setItem("mostRecentScore", score);
         console.log(score);
         document.getElementById("score").append("Your score is " + score);
         return window.location.assign("end.html");
@@ -114,6 +116,7 @@ answers.forEach (choice => {
                 result = "Incorrect";
                 resultCorrect.style.display = "none";
                 resultIncorrect.style.display = "block";
+                // resultIncorrect.append(currentQuestion.answer);
                 secondLeft = secondLeft - 20; //deducting 20 seconds for incorrect answer penalty
         };
         
