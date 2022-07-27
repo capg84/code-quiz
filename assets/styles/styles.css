@@ -10,7 +10,6 @@
 
 header {
     padding: 25px 0px;
-    margin-top: 15%;
     display: block;
     text-align: center;
 }
@@ -130,4 +129,21 @@ input {
   
 input::placeholder {
     color: #aaa;
+}
+
+.rulesHead {
+    text-align: left;
+    padding-top: 35px;
+}
+
+.rules {
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 5px 25px 0px 25px;
+}
+
+.rulesItems {
+    line-height: 1.5;
+    font-size: 14px;
 }
