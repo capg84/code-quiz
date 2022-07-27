@@ -109,7 +109,7 @@ answers.forEach (choice => {
             result = "Correct";
             resultCorrect.style.display = "block";
             resultIncorrect.style.display = "none";
-            score = score + 5; //adding score for correct answer
+            score = score + correctAnswerPoint; //adding score for correct answer
             } else {
                 result = "Incorrect";
                 resultCorrect.style.display = "none";
@@ -139,6 +139,7 @@ function countDownSecond() {
     if (secondLeft <= 0) {
         clearInterval(interval);
         alert("Time's up!!");
+        return window.location.assign("end.html");
     };
 };
 
