@@ -1,7 +1,4 @@
-# Cyprian's Code Quiz
-
-### Favicon
-The favicon for the site was generated using the following font:
+This favicon was generated using the following font:
 
 - Font Title: Barlow Condensed
 - Font Author: Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow)
