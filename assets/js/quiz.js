@@ -139,9 +139,9 @@ function countDownSecond() {
     document.getElementById("timer").innerHTML = secondLeft + " sec";
     secondLeft--;
     
-    if (secondLeft <= 0) {
+    if (secondLeft == 0) {
         clearInterval(interval);
-        alert("Time's up!!");
+        alert("Time's up. Game Over! :-(");
         return window.location.assign("end.html");
     };
 };
