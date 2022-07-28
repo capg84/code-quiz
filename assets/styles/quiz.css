@@ -1,12 +1,12 @@
-/* body {
-    margin-top: 25%;
-} */
+body {
+    margin-top: 10%;
+}
 
-/* header {
+header {
     background-color: darkblue;
     margin-top: -25%;
     color: antiquewhite;
-} */
+}
 
 .quiz {
     color: antiquewhite;
@@ -30,10 +30,7 @@
     padding: 0px;
     justify-content: flex-start;
     align-items: center;
-    height: 38px;
-    /* border-radius: 5px;
-    color: rgba(0, 115, 175, 1 ); */
-    
+    height: 38px;    
 }
 
 .answers:hover {
@@ -44,10 +41,6 @@
 }
 
 .prefix {
-    /* padding: 0px 5px;
-    height: 54px;
-    background-color: blue;
-    color: white; */
     padding: 10px 15px;
     background-color: skyblue;
     color: navy;
@@ -90,4 +83,29 @@
 
 .hud-main-text {
     text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+    body {
+        margin-top: 2.5%;
+    }
+
+    .quizBox {
+        margin: 2.5% 20%;
+    }
+
+    #hud {
+        display: flex;
+        justify-content: space-between;
+        padding: 0% 10%;
+        margin: 0% 7.5%;
+    }
+
+    #question {
+        margin: 0% 5% 2.5% 5%;
+    }
+
+    .answers {
+        margin: 0px 10% 15px 10%;
+    }
 }
